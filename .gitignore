@@ -1,0 +1,5 @@
+objects/
+pipex
+*.out
+pipex.h.gch
+.vscode/
