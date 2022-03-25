@@ -6,19 +6,19 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 19:23:23 by falarm            #+#    #+#             */
-/*   Updated: 2022/03/25 18:38:19 by falarm           ###   ########.fr       */
+/*   Updated: 2022/03/25 19:15:52 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	check_fd(int *fd1, int *fd2, char **argv)
+void	check_fd(int *in, int *out, char **argv)
 {
-	*fd1 = open(argv[1], O_RDONLY);
-	if (*fd1 == -1)
+	*in = open(argv[1], O_RDONLY);
+	if (*in == -1)
 		error_file(argv[1]);
-	*fd2 = open(argv[4], O_RDWR | O_CREAT | O_TRUNC, 0644);
-	if (*fd2 == -1)
+	*out = open(argv[4], O_RDWR | O_CREAT | O_TRUNC, 0644);
+	if (*out == -1)
 		error_file(argv[4]);
 }
 
