@@ -3,3 +3,11 @@ pipex
 *.out
 pipex.h.gch
 .vscode/
+subject/
+.DS_Store/
+src/
+libft_src/*.o
+libft_src/libft.a
+pipex-tester/
+file1
+file2

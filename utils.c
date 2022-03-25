@@ -6,33 +6,33 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 19:23:23 by falarm            #+#    #+#             */
-/*   Updated: 2022/03/22 20:35:46 by falarm           ###   ########.fr       */
+/*   Updated: 2022/03/25 18:38:19 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	check_fd(int *in, int *out, char **files)
+void	check_fd(int *fd1, int *fd2, char **argv)
 {
-	*in = open(files[1], O_RDONLY);
-	if (*in == -1)
-		error_file(files[1]);
-	*out = open(files[4], O_RDWR | O_CREAT | O_TRUNC, 0644);
-	if (*out == -1)
-		error_file(files[4]);
+	*fd1 = open(argv[1], O_RDONLY);
+	if (*fd1 == -1)
+		error_file(argv[1]);
+	*fd2 = open(argv[4], O_RDWR | O_CREAT | O_TRUNC, 0644);
+	if (*fd2 == -1)
+		error_file(argv[4]);
 }
 
-char	**find_path(char **envp)
+char	**find_path(char **env)
 {
 	char	**arr;
 	int		i;
 
 	i = 0;
-	while (envp[i])
+	while (env[i])
 	{
-		if (ft_strnstr(envp[i], "PATH=", 5))
+		if (ft_strnstr(env[i], "PATH=", 5))
 		{
-			arr = ft_split(envp[i] + 5, ':');
+			arr = ft_split(env[i] + 5, ':');
 			if (!arr)
 				error_process();
 			return (arr);
