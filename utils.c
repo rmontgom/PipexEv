@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmontgom <rmontgom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 19:23:23 by falarm            #+#    #+#             */
-/*   Updated: 2022/03/25 19:15:52 by falarm           ###   ########.fr       */
+/*   Updated: 2022/03/25 20:14:37 by rmontgom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,8 @@ char	*get_line(char *cmd, char **arr)
 	{
 		tmp = ft_strjoin(arr[i], "/");
 		line = ft_strjoin(tmp, cmd);
-		free(tmp);
-		if (access(line, F_OK) == 0)
+			if (access(line, F_OK) == 0)
 			return (line);
-		else
-			free(line);
 		i++;
 	}
 	error_cmd(cmd);
